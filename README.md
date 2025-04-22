@@ -61,7 +61,7 @@ simple-paddle-game/
 
 Here’s a look at the game in action:
 
-<img src="screenshots/paddle_game.jpg" width="600"/>
+![Gameplay](gameplay-screenshot.jpg)
 
 
 ---
