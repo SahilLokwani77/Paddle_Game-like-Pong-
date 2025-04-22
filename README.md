@@ -49,14 +49,14 @@ A minimal and fun paddle-and-ball game built using [LÖVE2D](https://love2d.org/
 
 ## 🗂️ Project Structure
 
-
 ---
 
 ## 📸 Screenshot
 
 Here’s a look at the game in action:
 
-![Gameplay](gameplay-screenshot.jpg)
+<img src="screenshots/paddle_game.jpg" width="600"/>
+
 
 ---
 
@@ -76,3 +76,4 @@ This project is licensed under the **MIT License** — feel free to use and modi
 ---
 
 Made with ❤️ using LÖVE2D.
+
