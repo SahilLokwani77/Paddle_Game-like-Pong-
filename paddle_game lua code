@@ -1,0 +1,82 @@
+function love.load()
+    -- Window setup
+    love.window.setTitle("Simple Paddle Game")
+    love.window.setMode(800, 600)
+
+    -- Paddle setup
+    paddle = {
+        x = 350,
+        y = 550,
+        width = 100,
+        height = 20,
+        speed = 400
+    }
+
+    -- Score setup
+    score = 0
+    font = love.graphics.newFont(24)
+
+    -- Ball setup
+    resetBall()
+end
+
+function resetBall()
+    ball = {
+        x = 400,
+        y = 300,
+        radius = 10,
+        speedX = 200,
+        speedY = -200
+    }
+end
+
+function love.update(dt)
+    -- Paddle movement
+    if love.keyboard.isDown("left") then
+        paddle.x = paddle.x - paddle.speed * dt
+    elseif love.keyboard.isDown("right") then
+        paddle.x = paddle.x + paddle.speed * dt
+    end
+
+    -- Keep paddle on screen
+    paddle.x = math.max(0, math.min(paddle.x, 800 - paddle.width))
+
+    -- Ball movement
+    ball.x = ball.x + ball.speedX * dt
+    ball.y = ball.y + ball.speedY * dt
+
+    -- Wall collision
+    if ball.x < 0 or ball.x > 800 then
+        ball.speedX = -ball.speedX
+    end
+    if ball.y < 0 then
+        ball.speedY = -ball.speedY
+    end
+
+    -- Paddle collision
+    if ball.y + ball.radius > paddle.y and
+       ball.x > paddle.x and
+       ball.x < paddle.x + paddle.width then
+        ball.speedY = -ball.speedY
+        ball.y = paddle.y - ball.radius -- Adjust position to avoid sticking
+        score = score + 1 -- Increment score on paddle hit
+    end
+
+    -- Missed the paddle
+    if ball.y > 600 then
+        resetBall()
+        score = 0 -- Reset score on miss
+    end
+end
+
+function love.draw()
+    -- Draw paddle
+    love.graphics.rectangle("fill", paddle.x, paddle.y, paddle.width, paddle.height)
+
+    -- Draw ball
+    love.graphics.circle("fill", ball.x, ball.y, ball.radius)
+
+    -- Draw score
+    love.graphics.setFont(font)
+    love.graphics.print("Score: " .. score, 10, 10)
+end
