@@ -48,6 +48,12 @@ A minimal and fun paddle-and-ball game built using [LÖVE2D](https://love2d.org/
 ---
 
 ## 🗂️ Project Structure
+simple-paddle-game/
+│
+├── main.lua                 # Main game logic
+├── README.md                # This file
+└── screenshots/
+    └── paddle_game.jpg      # Screenshot from gameplay
 
 ---
 
