@@ -54,7 +54,9 @@ A minimal and fun paddle-and-ball game built using [LÖVE2D](https://love2d.org/
 
 ## 📸 Screenshot
 
-*You can add a screenshot of your game here later!*
+Here’s a look at the game in action:
+
+![Gameplay](gameplay-screenshot.jpg)
 
 ---
 
